@@ -127,7 +127,7 @@ const summary = new app.prometheus.Summary({
 
 ## How to contribute
 
-Please tell us what we can do for you, but before that, please check if there are existing [bugs or issues](https://github.com/NFTGo/egg-exporter/issues).
+Please tell us what we can do for you, but before that, check if there are existing [bugs or issues](https://github.com/NFTGo/egg-exporter/issues).
 
 ## License
 
