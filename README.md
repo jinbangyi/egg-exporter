@@ -1,5 +1,7 @@
 # egg-exporter
 
+Languages: [English] [[简体中文](./README-CN.md)] 
+
 
 [![NPM version][npm-image]][npm-url]
 [![npm download][download-image]][download-url]
@@ -25,24 +27,24 @@
 [snyk-url]: https://snyk.io/test/npm/egg-prometheus
 -->
 
-基于 [egg-prometheus](https://github.com/eggjs/egg-prometheus) 开发，增加更多性能指标，为 egg 提供 [Prometheus](https://prometheus.io) 功能支持。了解更多请看 [Node.js 监控方案](https://hahhub.com/post/2020-05-eggjs-prometheus-monitor/)。
+This project is based on [egg-prometheus](https://github.com/eggjs/egg-prometheus), with more performance metrics. It provides more [Prometheus](https://prometheus.io) functionalities for egg. For more information, please refer to [Node.js monitering solutions](https://hahhub.com/post/2020-05-eggjs-prometheus-monitor/).
 
 
-## 展示
+## Demonstration
 
 ![./screenshots/egg-metrics-v1.png](./screenshots/egg-metrics-v1.png)
 
-## 安装
+## Installation
 
 ```bash
 $ npm i egg-exporter --save
 ```
 
-## 用法
+## Usages
 
-### 开启插件
+### Start the plugin
 
-通过 `${app_root}/config/plugin.js` 配置启动 Prometheus 插件:
+Start the plugin with configurations in `${app_root}/config/plugin.js`:
 
 ```js
 exports.exporter = {
@@ -51,7 +53,7 @@ exports.exporter = {
 };
 ```
 
-### 配置
+### Configuration
 
 ```js
 exports.exporter = {
@@ -62,41 +64,41 @@ exports.exporter = {
 };
 ```
 
-- `scrapePort`: 监听的用于采集 metrics 的端口
-- `scrapePath`: 监听的采集 metrics 的服务路径
-- `prefix`: 指定 metrics 名称的前缀
-- `defaultLabels`: 默认的 metrics 标签，全局生效
-- `aggregatorPort`: 配置 TCP 进程通信所使用的端口
+- `scrapePort`: the port used to scrape metrics
+- `scrapePath`: the path used for monitoring metrics
+- `prefix`: the prefix for the metrics names
+- `defaultLabels`: default metrics labels, globally effective
+- `aggregatorPort`: the TCP port for RPC
 
-## 内置的 Metrics
+## Builtin Metrics
 
-- `http_request_duration_milliseconds histogram`: http 请求耗时
-- `http_request_size_bytes summary`: http 请求 body 大小
-- `http_response_size_bytes summary`: http 响应 body 大小
-- `http_request_total counter`: http 请求数
-- `http_all_errors_total counter`: http 错误数
-- `http_all_request_in_processing_total gauge`: http 处理中请求数
-- `process_resident_memory_bytes gauge`: 驻留内存大小
-- `nodejs_heap_size_total_bytes gauge`: 已申请堆内存大小
-- `nodejs_heap_size_used_bytes gauge`: 已使用堆内存大小
-- `nodejs_external_memory_bytes gauge`: V8 管理的，绑定到 Javascript 的 C++ 对象的内存使用情况
-- `nodejs_version_info`: 版本信息
+- `http_request_duration_milliseconds histogram`: http request duration
+- `http_request_size_bytes summary`: http request body size
+- `http_response_size_bytes summary`: http reponse body size
+- `http_request_total counter`: number of http requests
+- `http_all_errors_total counter`: number of http erorrs
+- `http_all_request_in_processing_total gauge`: number of http requests being processed
+- `process_resident_memory_bytes gauge`: resident memory size
+- `nodejs_heap_size_total_bytes gauge`: allocated heap memory size
+- `nodejs_heap_size_used_bytes gauge`: allocated stack memory size
+- `nodejs_external_memory_bytes gauge`: C++ bind objects memory usage
+- `nodejs_version_info`: version information
 
-当 egg-rpc-base 插件开启时，还会提供下面 metrics
-- `rpc_consumer_response_time_ms summary`: rpc 客户端请求耗时
-- `rpc_consumer_request_rate counter`: rpc 客户端请求数
-- `rpc_consumer_fail_response_time_ms summary`: rpc 客户端失败的请求耗时
-- `rpc_consumer_request_fail_rate counter`: rpc 客户端失败的请求数
-- `rpc_consumer_request_size_bytes summary`: rpc 请求大小统计
-- `rpc_consumer_response_size_bytes summary`: rpc 响应大小统计
-- `rpc_provider_response_time_ms summary`: rpc 服务端处理时间
-- `rpc_provider_request_rate counter`: rpc 服务端收到请求数
-- `rpc_provider_fail_response_time_ms summary`: rpc 服务端失败的请求处理时间
-- `rpc_provider_request_fail_rate counter`: rpc 服务端失败的请求数
+When the egg-rpc-base plugin is enabled, the following metrics are also provided
+- `rpc_consumer_response_time_ms summary`: rpc client response time in milliseconds
+- `rpc_consumer_request_rate counter`: rpc client number of requests
+- `rpc_consumer_fail_response_time_ms summary`: rpc client failed response time
+- `rpc_consumer_request_fail_rate counter`: rpc failed requests
+- `rpc_consumer_request_size_bytes summary`: rpc request size
+- `rpc_consumer_response_size_bytes summary`: rpc response size
+- `rpc_provider_response_time_ms summary`: rpc server response time
+- `rpc_provider_request_rate counter`: rpc server number of requests received
+- `rpc_provider_fail_response_time_ms summary`: rpc server failed response time in milliseconds
+- `rpc_provider_request_fail_rate counter`: rpc server failed responses
 
-## 自定义 Metrics
+## Customized Metrics
 
-可以通过下面 API 自定义业务 metrics
+You may use the following API to customize metrics in your business logics.
 ```js
 const counter = new app.prometheus.Counter({
   name: 'xxx_total',
@@ -123,9 +125,9 @@ const summary = new app.prometheus.Summary({
 });
 ```
 
-## 如何贡献
+## How to contribute
 
-请告知我们可以为你做些什么，不过在此之前，请检查一下是否有[已经存在的Bug或者意见](https://github.com/highso-fe/egg-exporter/issues)。
+Please tell us what we can do for you, but before that, please check if there are existing [bugs or issues](https://github.com/NFTGo/egg-exporter/issues).
 
 ## License
 
